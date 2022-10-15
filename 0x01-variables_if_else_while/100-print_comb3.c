@@ -1,34 +1,32 @@
 #include <stdio.h>
+#include <unistd.h>
 
 /**
- * main - Print numbers between 00 to 89.
+ * main - Entry point
  *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int i, e;
+	int c, i;
 
-	i = 48;
-	e = 48;
-
-	while (e < 58)
+	for (c = '0'; c <= '9'; c++)
 	{
-		if (e != i && e < i)
+		for (i = '0'; i <= '9'; i++)
 		{
-			putchar(e);
-			putchar(i);
-			if (i == 57 && e == 56)
+			if (c < i)
 			{
-				break;
-			}
-			putchar(',');
-			putchar(' ');
-		}
-		i++;
-	}
-	e++;
+				putchar(c);
+				putchar(i);
 
+				if (c != '8' || (c == '8' && i != '9'))
+				{
+					putchar(',');
+					putchar(' ');
+				}
+			}
+		}
+	}
 	putchar('\n');
 	return (0);
 }
